@@ -75,3 +75,61 @@ console.log(isOver25);
 // Problem /////////////////////////
 ////////////////////////////////////
 
+/*Part 2: Practical Math
+Let’s look at a more practical scenario.
+You are planning a cross-country road trip!
+The distance of the trip, in total, is 1,500 miles.
+Your car’s fuel efficiency is as follows:
+At 55 miles per hour, you get 30 miles per gallon.
+At 60 miles per hour, you get 28 miles per gallon.
+At 75 miles per hour, you get 23 miles per gallon.
+You have a fuel budget of $175.
+The average cost of fuel is $3 per gallon.
+Set up a program to answer the following questions:
+How many gallons of fuel will you need for the entire trip?
+Will your budget be enough to cover the fuel expense?
+How long will the trip take, in hours?
+Compare the results when traveling at an average of 55, 60, and 75 miles per hour. Which makes the most sense for the trip?
+Log the results of your calculations using string concatenation or template literals.*/ 
+
+let distance = 1500;
+let mph55 = 30;
+let mph60 = 28;
+let mph75 = 23;
+let budget = 175;
+let avgCost = 3;
+
+// for 55mph
+let totGallon55 = distance / mph55;
+console.log(totGallon55);
+let totBudget55 = totGallon55 * avgCost;
+console.log(totBudget55);
+let isOverBudget55 =  budget >= totBudget55;
+console.log(isOverBudget55);
+let totTripTime55 = distance / 55;
+console.log(totTripTime55);
+
+
+// for 60mph
+let totGallon60 = distance / mph60;
+console.log(totGallon60);
+let totBudget60 = totGallon60 * avgCost;
+console.log(totBudget60);
+let isOverBudget60 =  budget >= totBudget60;
+console.log(isOverBudget60);
+let totTripTime60 = distance / 60;
+console.log(totTripTime60);
+
+
+// for 75mph
+let totGallon75 = distance / mph75;
+console.log(totGallon75);
+let totBudget75 = totGallon75 * avgCost;
+console.log(totBudget75);
+let isOverBudget75 =  budget >= totBudget75;
+console.log(isOverBudget75);
+let totTripTime75 = distance / 75;
+console.log(totTripTime75);
+
+
+// This code could be more efficient by using functions for answering totBuget and MPH answers
