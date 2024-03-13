@@ -9,7 +9,7 @@ const n4 = 5;
 // Check one: add up to 50
 // This is a fairly simple operation using
 // arithmetic operators and a comparison.
-const isSum50 = (n1 + n2 + n3 + n4) == 50;
+const isSum50 = n1 + n2 + n3 + n4 == 50;
 
 // Check two: at least two odd numbers
 // Here, we use modulus to check if something is odd.
@@ -26,11 +26,12 @@ const isOver25 = n1 > 25 || n2 > 25 || n3 > 25 || n4 > 25;
 // This is long, and there are more efficient
 // ways of handling it with other data structures
 // that we will review later.
-const isUnique = n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 != n4;
+const isUnique =
+  n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 != n4;
 
-// Here, we put the results into a single variable 
+// Here, we put the results into a single variable
 // for convenience. Note how we negate isOver25 using
-// the ! operator. We could also have tested for 
+// the ! operator. We could also have tested for
 // "isUnder25" as an alternative.
 const isValid = isSum50 && isTwoOdd && !isOver25 && isUnique;
 
@@ -41,10 +42,16 @@ const isValid = isSum50 && isTwoOdd && !isOver25 && isUnique;
 // but it SHOULD NOT be done this way. As programmers,
 // we break things into small, manageable pieces so that
 // they can be better understood, scaled, and maintained.
-const dontDoThis = ((n1 + n2 + n3 + n4) == 50) && 
-  ((n1 % 2) + (n2 % 2) + (n3 % 2) + (n4 % 2) >= 2) && 
-  !(n1 > 25 || n2 > 25 || n3 > 25 || n4 > 25) && 
-  (n1 != n2 && n1 != n3 && n1 != n4 && n2 != n3 && n2 != n4 && n3 != n4);
+const dontDoThis =
+  n1 + n2 + n3 + n4 == 50 &&
+  (n1 % 2) + (n2 % 2) + (n3 % 2) + (n4 % 2) >= 2 &&
+  !(n1 > 25 || n2 > 25 || n3 > 25 || n4 > 25) &&
+  n1 != n2 &&
+  n1 != n3 &&
+  n1 != n4 &&
+  n2 != n3 &&
+  n2 != n4 &&
+  n3 != n4;
 
 ///////////////////////
 // Math Problems //////
@@ -55,20 +62,20 @@ const divBy5 = (n1 % 5) + (n2 % 5) + (n3 % 5) + (n4 % 5) === 0;
 console.log(divBy5);
 
 // Check if the first number is larger than the last. Cache the result in a variable.
-const lrgrThanLast = (n1 > n4);
+const lrgrThanLast = n1 > n4;
 console.log(lrgrThanLast);
 // Accomplish the following arithmetic chain:
-    //Subtract the first number from the second number.
-const subFNumLNum = (n2 - n1);
+//Subtract the first number from the second number.
+const subFNumLNum = n2 - n1;
 console.log(subFNumLNum);
-    //Multiply the result by the third number.
-const thirdNumResult = (subFNumLNum * n3);
+//Multiply the result by the third number.
+const thirdNumResult = subFNumLNum * n3;
 console.log(thirdNumResult);
-    //Find the remainder of dividing the result by the fourth number.
+//Find the remainder of dividing the result by the fourth number.
 const fourthNum = thirdNumResult / n4;
 console.log(fourthNum);
 // Change the way that isOver25 calculates so that we do not need to use the NOT operator (!) in other logic comparisons. Rename the variable as appropriate.
-const isOver25redone = (n1 <= 25 && n2 <= 25 && n3 <= 25 && n4 <= 25);
+const isOver25redone = n1 <= 25 && n2 <= 25 && n3 <= 25 && n4 <= 25;
 console.log(isOver25);
 
 ////////////////////////////////////
@@ -90,7 +97,7 @@ How many gallons of fuel will you need for the entire trip?
 Will your budget be enough to cover the fuel expense?
 How long will the trip take, in hours?
 Compare the results when traveling at an average of 55, 60, and 75 miles per hour. Which makes the most sense for the trip?
-Log the results of your calculations using string concatenation or template literals.*/ 
+Log the results of your calculations using string concatenation or template literals.*/
 
 let distance = 1500;
 let mph55 = 30;
@@ -100,36 +107,58 @@ let budget = 175;
 let avgCost = 3;
 
 // for 55mph
-let totGallon55 = distance / mph55;
-console.log(totGallon55);
-let totBudget55 = totGallon55 * avgCost;
-console.log(totBudget55);
-let isOverBudget55 =  budget >= totBudget55;
-console.log(isOverBudget55);
-let totTripTime55 = distance / 55;
-console.log(totTripTime55);
+console.log(`Calculations for going 55MPH:`);
 
+let totGallon55 = distance / mph55;
+console.log(`The total gallons used going 55mph is '${totGallon55}'`);
+
+let totBudget55 = totGallon55 * avgCost;
+console.log(`The total trip cost is '${totBudget55}'`);
+
+let isOverBudget55 = budget >= totBudget55;
+console.log(`Is the budget enough to cover the trip?: '${isOverBudget55}'`);
+
+let totTripTime55 = distance / 55;
+console.log(`The total trip time: '${totTripTime55}'`);
+
+console.log(`\n`);
 
 // for 60mph
-let totGallon60 = distance / mph60;
-console.log(totGallon60);
-let totBudget60 = totGallon60 * avgCost;
-console.log(totBudget60);
-let isOverBudget60 =  budget >= totBudget60;
-console.log(isOverBudget60);
-let totTripTime60 = distance / 60;
-console.log(totTripTime60);
+console.log(`Calculations for going 60MPH:`);
 
+let totGallon60 = distance / mph60;
+console.log(`The total gallons used going 55mph is '${totGallon60}'`);
+
+let totBudget60 = totGallon60 * avgCost;
+console.log(`The total trip cost is '${totBudget60}'`);
+
+let isOverBudget60 = budget >= totBudget60;
+console.log(`Is the budget enough to cover the trip?: '${isOverBudget60}'`);
+
+let totTripTime60 = distance / 60;
+console.log(`The total trip time: '${totTripTime60}'`);
+
+console.log(`\n`);
 
 // for 75mph
-let totGallon75 = distance / mph75;
-console.log(totGallon75);
-let totBudget75 = totGallon75 * avgCost;
-console.log(totBudget75);
-let isOverBudget75 =  budget >= totBudget75;
-console.log(isOverBudget75);
-let totTripTime75 = distance / 75;
-console.log(totTripTime75);
+console.log(`Calculations for going 60MPH:`);
 
+let totGallon75 = distance / mph75;
+console.log(`The total gallons used going 55mph is '${totGallon75}'`);
+
+let totBudget75 = totGallon75 * avgCost;
+console.log(`The total trip cost is '${totBudget75}'`);
+
+let isOverBudget75 = budget >= totBudget75;
+console.log(`Is the budget enough to cover the trip?: '${isOverBudget75}'`);
+
+let totTripTime75 = distance / 75;
+console.log(`The total trip time: '${totTripTime60}'`);
+
+console.log(`\n`);
+
+console.log(
+  `Going 60MPH is not feasible, it goes over budget. 60MPH will get you there faster but cost more. 55 MPH will get you there slower but cost less.`
+);
 
 // This code could be more efficient by using functions for answering totBuget and MPH answers
